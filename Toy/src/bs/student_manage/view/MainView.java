@@ -95,4 +95,10 @@ public class MainView {
 		return result;
 	}
 	
+	// 3-7. 저장 성공여부 화면출력
+	public void isEmptyPrint(String msg) {
+		System.out.println("===== 저장중... =====");
+		System.out.println(msg);
+	}
+	
 }
