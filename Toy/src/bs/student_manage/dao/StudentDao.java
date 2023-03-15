@@ -3,7 +3,7 @@ package bs.student_manage.dao;
 import bs.student_manage.dto.StudentDto;
 
 public class StudentDao {
-	// 사용자가 입력했던 정보를 출력해주는 클래스
+	// 사용자가 입력했던 정보를 인스턴스해주는 클래스
 	
 	/* 3-6. StudentController의 insertStudent메소드에 저장된 학생정보를 비어있는 학생 맴버변수에 할당
 	 * (만약 비어있는 맴버변수에 할당하지않으면 insertStudent메소드의 student에 계속 덮어씌어질테니??)
@@ -37,5 +37,49 @@ public class StudentDao {
 		} else {
 			return false;
 		} return true;
+	}
+	
+	// 4-3. student안에 학생정보가 있으면 result에 student정보 넣기
+	public String infoStudentResult() {
+		String result = "";
+		
+		if(student1 != null) {
+			result += student1.infoResult();
+		}
+		if(student2 != null) {
+			result += student2.infoResult();
+		}
+		if(student3 != null) {
+			result += student3.infoResult();
+		}
+		if(student4 != null) {
+			result += student4.infoResult();
+		}
+		if(student5 != null) {
+			result += student5.infoResult();
+		}
+		return result;
+	}
+	
+	// 5-4. 매개변수로 받은 이름이 student에 있는지 확인
+	public String searchStudentName(String name) {
+		String result = "";
+		
+		if(student1 != null && student1.getName().equals(name)) {
+			result += student1.infoResult();
+		}
+		if(student2 != null && student2.getName().equals(name)) {
+			result += student2.infoResult();
+		}
+		if(student3 != null && student3.getName().equals(name)) {
+			result += student3.infoResult();
+		}
+		if(student4 != null && student4.getName().equals(name)) {
+			result += student4.infoResult();
+		}
+		if(student5 != null && student5.getName().equals(name)) {
+			result += student5.infoResult();
+		}
+		return result;
 	}
 }

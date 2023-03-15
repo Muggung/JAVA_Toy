@@ -74,6 +74,6 @@ public class StudentDto {
 	
 	public String infoResult() {
 		return this.student_ID + " " + this.studentName + " " + this.studentGrade + " " + this.studentGender
-				+ " " + this.studentMajor + " " + this.address;
+				+ " " + this.studentMajor + " " + this.address + "\n";
 	}
 }
