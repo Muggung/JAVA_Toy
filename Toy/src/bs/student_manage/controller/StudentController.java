@@ -11,6 +11,7 @@ public class StudentController {
 	 * 1. 학생등록 구현
 	 * 2. 전체조회 구현
 	 * 3. 이름조회 구현
+	 * 4. 학생수정 구현
 	 */
 	
 	// 0. 프로그램 시작 구현
@@ -20,36 +21,43 @@ public class StudentController {
 	
 	// 1. 학생등록 구현
 	public void insertStudent() {
-		// 3-5. MainView의 insertStudentView 메소드의 studentDto에 저장된 리턴 값을 변수에 저장
-		// student 변수에 저장된 값(학생정보)으로 객체(학생)을 생성하려면 학생 객체를 만들어야하니 StudentDao에서 생성
+		// MainView().insertStudentView()를 통해 학생정보 받기
 		StudentDto student = new MainView().insertStudentView();
 		
-		// 3-6-3. 학생등록 성공여부 할당(isEmpty메소드 활용)
+		// 받은 학생정보를 빈 배열에 저장
 		String successMsg = dao.isEmpty(student) ? "===== 학생등록 성공!! =====" : "===== 학생등록 실패... =====";
 		
-		// 3-6-4. MainView에서 화면출력을 담당하기에 String인 successMsg를 매개변수로 화면출력해주는 isEmptyPrint() 메소드 생성
 		new MainView().isEmptyPrint(successMsg);
 	}
 	
 	// 2. 전체조회 구현
 	public void infoStudentAll() {
-		// 4-2. StudentDao에 저장된 student 중 null이 아닌 student를 찾는 메소드 생성
-		// 생성 후 String으로 값 받아오기
 		String result = dao.infoStudentResult();
 		
-		// 4-4. result를 매개변수로 값을 전달하여 MainView에 화면출력
 		new MainView().studentAllPrint(result);
 	}
 	
 	// 3. 이름조회 구현
 	public void searchStudent() {
-		// 5-2. 학생 이름 검색받기
-		String searachStudentName = new MainView().searchName();
+		String studentName = new MainView().searchName();
 		
-		// 5-3. 받은 이름으로 Dao에서 메소드를 만들어 받은 이름과 student의 이름이 일치한지 확인
-		String search = dao.searchStudentName(searachStudentName);
+		String search = dao.searchStudentName(studentName);
 		
-		// 5-4. MainView에 학생 출력하기
 		new MainView().studentPrint(search);
+	}
+	
+	// 4. 학생수정 구현
+	public void updateStudent() {
+		String msg = "";
+		
+		String studentName = new MainView().searchName();
+		
+		StudentDto student = new MainView().updateStudnet();
+		
+		student.setName(studentName);
+		
+		msg = dao.updateStudent(student) ? "===== 수정 성공! ====" : "===== 수정 실패:( 학생정보가 있는지 확인해주세요. =====";
+		
+		new MainView().isEmptyPrint(msg);
 	}
 }
