@@ -12,6 +12,7 @@ public class StudentController {
 	 * 2. 전체조회 구현
 	 * 3. 이름조회 구현
 	 * 4. 학생수정 구현
+	 * 5. 학생삭제 구현
 	 */
 	
 	// 0. 프로그램 시작 구현
@@ -21,10 +22,8 @@ public class StudentController {
 	
 	// 1. 학생등록 구현
 	public void insertStudent() {
-		// MainView().insertStudentView()를 통해 학생정보 받기
 		StudentDto student = new MainView().insertStudentView();
 		
-		// 받은 학생정보를 빈 배열에 저장
 		String successMsg = dao.isEmpty(student) ? "===== 학생등록 성공!! =====" : "===== 학생등록 실패... =====";
 		
 		new MainView().isEmptyPrint(successMsg);
@@ -52,11 +51,22 @@ public class StudentController {
 		
 		String studentName = new MainView().searchName();
 		
-		StudentDto student = new MainView().updateStudnet();
+		StudentDto student = new MainView().updateStudent();
 		
 		student.setName(studentName);
 		
 		msg = dao.updateStudent(student) ? "===== 수정 성공! ====" : "===== 수정 실패:( 학생정보가 있는지 확인해주세요. =====";
+		
+		new MainView().isEmptyPrint(msg);
+	}
+	
+	// 5. 학생삭제 구현
+	public void deleteStudent() {
+		String msg = "";
+		
+		String student_ID = new MainView().deleteStudent();
+		
+		msg = dao.deleteStudent(student_ID) ? "===== 삭제 성공! =====" : "===== 삭제 실패:( 학생정보가 맞는지 확인해주세요.";
 		
 		new MainView().isEmptyPrint(msg);
 	}

@@ -3,7 +3,6 @@ package bs.student_manage.dto;
 public class StudentDto {
 	// 사용자가 입력한 정보를 저장하는 클래스
 	
-	// 3-3. MainView에서 입력받은 정보를 저장(정보 저장은 은닉되어야한다. 따라서 맴버변수로 선언 후 getter와 setter로 접근하기)
 	private String student_ID;
 	private String studentName;
 	private int studentGrade;
@@ -11,12 +10,13 @@ public class StudentDto {
 	private String studentMajor;
 	private String address;
 	
-	public StudentDto() {}		// 기본 생성자 : 기본값을 입력(지금은 없는듯...)
+	{
+		student_ID =  "2-22" + (int) (Math.random() * 100) + 1;
+	}
 	
-	public StudentDto(String p_ID, String pName, int pGrade, char pGender, String pMajor, String pAddress) {
-		// 3-3-1. MainView 클래스의 insertStudentView(매개변수) 값 받아오기
-		// 3-3-2. StudentDto 필드를 매개변수로 받아온 값을 할당
-		this.student_ID = p_ID;
+	public StudentDto() {}
+	
+	public StudentDto(String pName, int pGrade, char pGender, String pMajor, String pAddress) {
 		this.studentName = pName;
 		this.studentGrade = pGrade;
 		this.studentGender = pGender;

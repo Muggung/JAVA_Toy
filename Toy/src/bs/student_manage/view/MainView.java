@@ -42,6 +42,7 @@ public class MainView {
 			System.out.println("1. 학생등록");
 			// 6. 학생수정 구현
 			System.out.println("2. 학생수정");
+			// 7. 학생삭제 구현
 			System.out.println("3. 학생삭제");
 			// 4. 전체조회 구현
 			System.out.println("4. 전체조회");
@@ -58,7 +59,7 @@ public class MainView {
 				case 2 : 
 					controller.updateStudent(); break;
 				case 3 : 
-					System.out.println("아직 기능구현하지 못했습니다."); break;
+					controller.deleteStudent(); break;
 				case 4 : 
 					controller.infoStudentAll(); break;
 				case 5 : 
@@ -74,8 +75,6 @@ public class MainView {
 	// 학생등록 값 입력받기
 	public StudentDto insertStudentView() {
 		System.out.println("===== 학생등록 =====");
-		System.out.print("학번 : ");
-		String student_ID = sc.nextLine();
 		System.out.print("이름 : ");
 		String name = sc.nextLine();
 		System.out.print("학년 : ");
@@ -89,7 +88,7 @@ public class MainView {
 		System.out.print("주소 : ");
 		String address = sc.nextLine();
 		
-		StudentDto result = new StudentDto(student_ID, name, grade, gender, major, address);
+		StudentDto result = new StudentDto(name, grade, gender, major, address);
 		
 		return result;
 	}
@@ -128,7 +127,7 @@ public class MainView {
 	}
 	
 	// 수정할 학생정보 입력
-	public StudentDto updateStudnet() {
+	public StudentDto updateStudent() {
 		StudentDto student = new StudentDto();
 		System.out.println("===== 학생정보 수정 =====");
 		System.out.print("수정할 학년 : ");
@@ -144,5 +143,13 @@ public class MainView {
 		student.setAddress(address);
 		
 		return student;
+	}
+	
+	// 삭제할 학생정보 입력
+	public String deleteStudent() {
+		System.out.println("===== 학생정보 삭제 =====");
+		System.out.print("삭제할 학생 학번 : ");
+		String student_ID = sc.nextLine();
+		return student_ID;
 	}
 }
