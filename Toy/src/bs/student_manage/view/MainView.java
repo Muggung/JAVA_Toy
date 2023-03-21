@@ -109,20 +109,24 @@ public class MainView {
 		}
 	}
 	
-	// 학생이름 검색받기
-	public String searchName() {
-		System.out.print("학생이름을 입력해주세요 : ");
+	// 학생정보 검색받기
+	public String searchStudent() {
+		System.out.print("찾으실 학생 정보를 입력해주세요 : ");
 		String name = sc.nextLine();
 		return name;
 	}
 	
 	// 검색한 학생정보 출력
-	public void studentPrint(String infoStudent) {
-		if(infoStudent.equals("")) {
+	public void studentPrint(StudentDto[] infoStudent) {
+		if(infoStudent == null) {
 			System.out.println("저장된 학생이 없습니다.");
 		} else {
 			System.out.println("===== 학생 정보 =====\n");
-			System.out.println(infoStudent);
+			for(StudentDto a : infoStudent) {
+				if(a != null) {
+					System.out.println(a.infoResult());
+				}
+			}
 		}
 	}
 	

@@ -1,5 +1,8 @@
 package bs.student_manage.dao;
 
+import java.util.Arrays;
+
+import bs.student_manage.StudentInterface;
 import bs.student_manage.dto.StudentDto;
 
 public class StudentDao {
@@ -31,18 +34,16 @@ public class StudentDao {
 	}
 	
 	// 학생이름 검색
-	public String searchStudentName(String name) {
-		String result = "";
+	public StudentDto[] searchStudent(Object o) {
+		StudentDto[] searchArr = new StudentDto[students.length];
 		
-		for(StudentDto s : students) {
-			if(s != null && s.getName().equals(name)) {
-				result += s.infoResult();
-			}
-		}
+		searchArr = studentCondition(students, o, (s, obj) -> s.getName().equals(o) || s.getAddress().equals(o) || s.getMajor().equals(obj) || s.getID().equals(obj));;
 		
-		return result;
+		StudentDto[] resultArr = Arrays.copyOf(searchArr, searchArr.length);
+		
+		return resultArr;
 	}
-	
+
 	// 학생정보 수정
 	public boolean updateStudent(StudentDto student) {
 		for(int i=0; i<students.length; i++) {
@@ -65,5 +66,20 @@ public class StudentDao {
 			}
 		}
 		return false;
+	}
+	
+	// 인터페이스
+	public static StudentDto[] studentCondition(StudentDto[] s, Object data, StudentInterface si) {
+		StudentDto[] studentArr = new StudentDto[s.length];
+		int index = 0;
+		for(int i=0; i<s.length; i++) {
+			if(s[i] != null) {
+				if(si.check(s[i], data)) {
+					studentArr[index++] = s[i];
+				}
+			}
+		}
+		StudentDto[] copyArr = Arrays.copyOf(studentArr, studentArr.length);
+		return copyArr;
 	}
 }

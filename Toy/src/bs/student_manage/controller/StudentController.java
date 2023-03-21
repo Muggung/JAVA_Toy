@@ -38,18 +38,18 @@ public class StudentController {
 	
 	// 3. 이름조회 구현
 	public void searchStudent() {
-		String studentName = new MainView().searchName();
+		String studentSearch = new MainView().searchStudent();
 		
-		String search = dao.searchStudentName(studentName);
+		StudentDto[] dd = dao.searchStudent(studentSearch);
 		
-		new MainView().studentPrint(search);
+		new MainView().studentPrint(dd);
 	}
 	
 	// 4. 학생수정 구현
 	public void updateStudent() {
 		String msg = "";
 		
-		String studentName = new MainView().searchName();
+		String studentName = new MainView().searchStudent();
 		
 		StudentDto student = new MainView().updateStudent();
 		
