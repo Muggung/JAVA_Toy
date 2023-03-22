@@ -109,9 +109,9 @@ public class MainView {
 		}
 	}
 	
-	// 학생정보 검색받기
-	public String searchStudent() {
-		System.out.print("찾으실 학생 정보를 입력해주세요 : ");
+	// 학생이름 검색받기
+	public String searchStudentName() {
+		System.out.print("학생 이름 : ");
 		String name = sc.nextLine();
 		return name;
 	}
@@ -122,9 +122,9 @@ public class MainView {
 			System.out.println("저장된 학생이 없습니다.");
 		} else {
 			System.out.println("===== 학생 정보 =====\n");
-			for(StudentDto a : infoStudent) {
-				if(a != null) {
-					System.out.println(a.infoResult());
+			for(StudentDto sd : infoStudent) {
+				if(sd != null) {
+					System.out.println(sd.infoResult());
 				}
 			}
 		}
@@ -133,6 +133,7 @@ public class MainView {
 	// 수정할 학생정보 입력
 	public StudentDto updateStudent() {
 		StudentDto student = new StudentDto();
+		controller.infoStudentAll();
 		System.out.println("===== 학생정보 수정 =====");
 		System.out.print("수정할 학년 : ");
 		int grade = sc.nextInt();

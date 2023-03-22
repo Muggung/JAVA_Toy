@@ -34,14 +34,14 @@ public class StudentDao {
 	}
 	
 	// 학생이름 검색
-	public StudentDto[] searchStudent(Object o) {
-		StudentDto[] searchArr = new StudentDto[students.length];
-		
-		searchArr = studentCondition(students, o, (s, obj) -> s.getName().equals(o) || s.getAddress().equals(o) || s.getMajor().equals(obj) || s.getID().equals(obj));;
-		
-		StudentDto[] resultArr = Arrays.copyOf(searchArr, searchArr.length);
-		
-		return resultArr;
+	public String searchStudentName(String name) {
+		String result = "";
+		for(StudentDto s : students) {
+			if(s != null && s.getName().contains(name)) {
+				result += s.infoResult() + "\n";
+			}
+		}
+		return result;
 	}
 
 	// 학생정보 수정
@@ -69,17 +69,15 @@ public class StudentDao {
 	}
 	
 	// 인터페이스
-	public static StudentDto[] studentCondition(StudentDto[] s, Object data, StudentInterface si) {
-		StudentDto[] studentArr = new StudentDto[s.length];
+	public StudentDto[] studentCondition(Object data, StudentInterface si) {
+		StudentDto[] studentArr = new StudentDto[students.length];
 		int index = 0;
-		for(int i=0; i<s.length; i++) {
-			if(s[i] != null) {
-				if(si.check(s[i], data)) {
-					studentArr[index++] = s[i];
-				}
+		for(int i=0; i<students.length; i++) {
+			if(students[i] != null && si.check(students[i], data)) {
+				studentArr[index++] = students[i];
 			}
 		}
-		StudentDto[] copyArr = Arrays.copyOf(studentArr, studentArr.length);
+		StudentDto[] copyArr = Arrays.copyOf(studentArr, index);
 		return copyArr;
 	}
 }
