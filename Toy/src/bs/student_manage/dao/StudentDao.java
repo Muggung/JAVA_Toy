@@ -29,7 +29,6 @@ public class StudentDao {
 				result += s.infoResult();
 			}
 		}
-		
 		return result;
 	}
 	

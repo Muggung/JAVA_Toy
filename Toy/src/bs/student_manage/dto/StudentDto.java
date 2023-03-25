@@ -76,4 +76,5 @@ public class StudentDto {
 		return this.student_ID + " " + this.studentName + " " + this.studentGrade + " " + this.studentGender
 				+ " " + this.studentMajor + " " + this.address + "\n";
 	}
+	
 }

@@ -16,7 +16,7 @@ public class MainView {
 		char isEnter = sc.next().charAt(0);
 		
 		while(true) {
-			if(isEnter == 'Y' || isEnter == '네') {
+			if(isEnter == 'Y' || isEnter == 'y') {
 				mainMenu();
 				return;
 			} else if(isEnter == 'N') {
@@ -48,6 +48,8 @@ public class MainView {
 			System.out.println("4. 전체조회");
 			// 5. 이름조회 구현
 			System.out.println("5. 학생이름 조회");
+			// 8. 항목별 조회 구현
+			System.out.println("6. 항목별 학생 조회");
 			System.out.println("0. 프로그램 종료");
 			System.out.print("메뉴를 선택해주세요 : ");
 			int menuChoice = sc.nextInt();
@@ -63,7 +65,9 @@ public class MainView {
 				case 4 : 
 					controller.infoStudentAll(); break;
 				case 5 : 
-					controller.searchStudent(); break;
+					controller.searchByName(); break;
+				case 6 :
+					controller.searchByType(); break;
 				case 0 : 
 					System.out.println("프로그램을 종료합니다."); return;
 				default : 
@@ -156,5 +160,23 @@ public class MainView {
 		System.out.print("삭제할 학생 학번 : ");
 		String student_ID = sc.nextLine();
 		return student_ID;
+	}
+	
+	// 항목별 조회 출력
+	public int studentType() {
+		System.out.println("===== 조회할 항목 =====");
+		System.out.println("1. 학년");
+		System.out.println("2. 전공");
+		System.out.println("3. 주소");
+		System.out.print("메뉴 선택 : ");
+		int choice = sc.nextInt();
+		
+		return choice;
+	}
+	
+	public Object insertType(String type) {
+		System.out.println("조회할 " + type + "을(를) 입력해주세요.");
+		System.out.print("입력 : ");
+		return type.equals("학년") ? sc.nextInt() : sc.next();
 	}
 }
