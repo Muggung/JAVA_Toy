@@ -14,6 +14,7 @@ public class StudentController {
 	 * 3. 이름조회 구현
 	 * 4. 학생수정 구현
 	 * 5. 학생삭제 구현
+	 * 6. 항목별 조회 구현
 	 */
 	
 	// 0. 프로그램 시작 구현
@@ -88,7 +89,7 @@ public class StudentController {
 				si = (s, t) -> s.getMajor().contains((String) t); break;
 			case 3 :
 				type = new MainView().insertType("주소");
-				si = (s, t) -> s.getMajor().contains((String) t); break;
+				si = (s, t) -> s.getAddress().contains((String) t); break;
 			default :
 				new MainView().isEmptyPrint("검색하신 학생 정보가 없습니다. 메인 메뉴로 돌아갑니다."); break;
 		}

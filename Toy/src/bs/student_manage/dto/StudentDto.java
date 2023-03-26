@@ -73,7 +73,7 @@ public class StudentDto {
 	}
 	
 	public String infoResult() {
-		return this.student_ID + " " + this.studentName + " " + this.studentGrade + " " + this.studentGender
+		return this.student_ID + " " + this.studentName + " " + this.studentGrade + "학년 " + this.studentGender
 				+ " " + this.studentMajor + " " + this.address + "\n";
 	}
 	
