@@ -12,13 +12,17 @@ public class StudentDao {
 	
 	// 학생정보 등록
 	public boolean isEmpty(StudentDto student) {
-		for(int i=0; i<students.length; i++) {
-			if(students[i] == null) {
-				students[i] = student;
-				return true;
-			}
+		try {
+			for(int i=0; i<students.length; i++) {
+				if(students[i] == null) {
+					students[i] = student;
+					return true;
+				}
+			} return false;
+		}catch(NullPointerException e) {
+			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	// 학생정보 전체출력
