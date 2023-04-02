@@ -31,29 +31,17 @@ public class MainView {
 	
 	// 메인 메뉴화면 구현 
 	public void mainMenu() {
-		/* 1. 학생관리 프로그램 시작화면을 구현한다.
-		 * 2. 사용자가 학생관리 프로그램 메뉴에서 숫자를 입력하고 사용자가 입력한 값에 맞는 기능을 구현한다.
-		 */
-		
-		// 1. 학생관리 프로그램 시작화면 구현
 		while(true) {
 			System.out.println("===== 학생관리 프로그램 =====");
-			// 3. 학생등록 구현
 			System.out.println("1. 학생등록");
-			// 6. 학생수정 구현
 			System.out.println("2. 학생수정");
-			// 7. 학생삭제 구현
 			System.out.println("3. 학생삭제");
-			// 4. 전체조회 구현
 			System.out.println("4. 전체조회");
-			// 5. 이름조회 구현
 			System.out.println("5. 학생이름 조회");
-			// 8. 항목별 조회 구현
 			System.out.println("0. 프로그램 종료");
 			System.out.print("메뉴를 선택해주세요 : ");
 			int menuChoice = sc.nextInt();
 			
-			// 2. 사용자가 학생관리 프로그램 메뉴에서 숫자를 입력한다.
 			switch(menuChoice) {
 				case 1 : 
 					controller.insertStudent(); ; break;

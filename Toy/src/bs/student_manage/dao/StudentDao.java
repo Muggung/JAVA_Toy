@@ -1,6 +1,5 @@
 package bs.student_manage.dao;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -8,7 +7,6 @@ import java.util.Set;
 import bs.student_manage.dto.StudentDto;
 
 public class StudentDao {
-	// 사용자가 입력했던 정보를 인스턴스해주는 클래스
 	private Map<String, StudentDto> students = new HashMap<String, StudentDto>();
 	
 	// 학생정보 등록

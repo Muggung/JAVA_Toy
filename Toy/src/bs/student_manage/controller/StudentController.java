@@ -6,15 +6,6 @@ import bs.student_manage.view.MainView;
 
 public class StudentController {
 	StudentDao dao = new StudentDao();
-	/* 학생관리 프로그램의 기능을 모아놓은 클래스
-	 * 0. 프로그램 시작 구현
-	 * 1. 학생등록 구현
-	 * 2. 전체조회 구현
-	 * 3. 이름조회 구현
-	 * 4. 학생수정 구현
-	 * 5. 학생삭제 구현
-	 * 6. 항목별 조회 구현
-	 */
 	
 	// 0. 프로그램 시작 구현
 	public void startProgram() {
