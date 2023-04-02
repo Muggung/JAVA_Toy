@@ -49,7 +49,6 @@ public class MainView {
 			// 5. 이름조회 구현
 			System.out.println("5. 학생이름 조회");
 			// 8. 항목별 조회 구현
-			System.out.println("6. 항목별 학생 조회");
 			System.out.println("0. 프로그램 종료");
 			System.out.print("메뉴를 선택해주세요 : ");
 			int menuChoice = sc.nextInt();
@@ -66,8 +65,6 @@ public class MainView {
 					controller.infoStudentAll(); break;
 				case 5 : 
 					controller.searchByName(); break;
-				case 6 :
-					controller.searchByType(); break;
 				case 0 : 
 					System.out.println("프로그램을 종료합니다."); return;
 				default : 
@@ -105,10 +102,10 @@ public class MainView {
 	
 	// 등록된 학생정보 전체줄력
 	public void studentAllPrint(String infoAll) {
-		if(infoAll.equals("")) {
+		if(infoAll.length() < 1) {
 			System.out.println("저장된 학생이 없습니다.");
 		} else {
-			System.out.println("===== 전체 학생 =====\n");
+			System.out.println("===== 학생 정보 =====\n");
 			System.out.println(infoAll);
 		}
 	}
@@ -121,23 +118,26 @@ public class MainView {
 	}
 	
 	// 검색한 학생정보 출력
-	public void studentPrint(StudentDto[] infoStudent) {
-		if(infoStudent == null) {
+	public void studentPrint(String infoStudent) {
+		if(infoStudent.length() < 1) {
 			System.out.println("저장된 학생이 없습니다.");
 		} else {
-			System.out.println("===== 학생 정보 =====\n");
-			for(StudentDto sd : infoStudent) {
-				if(sd != null) {
-					System.out.println(sd.infoResult());
-				}
-			}
+			System.out.println("===== 검색하신 학생 =====\n");
+			System.out.println(infoStudent);
 		}
+	}
+	
+	// 수정할 학생 학번
+	public String searchStudentID() {
+		System.out.print("학번 : ");
+		String id = sc.nextLine();
+		return id;
 	}
 	
 	// 수정할 학생정보 입력
 	public StudentDto updateStudent() {
 		StudentDto student = new StudentDto();
-		controller.infoStudentAll();
+		
 		System.out.println("===== 학생정보 수정 =====");
 		System.out.print("수정할 학년 : ");
 		int grade = sc.nextInt();
