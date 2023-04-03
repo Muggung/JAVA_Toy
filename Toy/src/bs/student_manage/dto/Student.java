@@ -9,12 +9,12 @@ public class Student {
 	private int age;
 	private char gender;
 	private String major;
-	private String grade;
+	private int grade;
 	private String address;
 	
 	public Student() {}
 
-	public Student(String name, int age, char gender, String major, String grade, String address) {
+	public Student(String name, int age, char gender, String major, int grade, String address) {
 		super();
 		this.student_ID = "2-22" + (int) (Math.random() * 100) + 1;
 		this.name = name;
@@ -61,11 +61,11 @@ public class Student {
 		this.major = major;
 	}
 
-	public String getGrade() {
+	public int getGrade() {
 		return grade;
 	}
 
-	public void setGrade(String grade) {
+	public void setGrade(int grade) {
 		this.grade = grade;
 	}
 
@@ -79,8 +79,8 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [student_ID=" + student_ID + ", name=" + name + ", age=" + age + ", gender=" + gender
-				+ ", major=" + major + ", grade=" + grade + ", address=" + address + "]";
+		return " " + name + " " + age + "살 " + gender + "자 " + grade + "학년 " + major + " 전공 "
+				+ address + "에 거주";
 	}
 
 	@Override
