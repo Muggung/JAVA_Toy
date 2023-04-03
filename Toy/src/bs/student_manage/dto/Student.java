@@ -101,4 +101,5 @@ public class Student {
 				&& Objects.equals(grade, other.grade) && Objects.equals(major, other.major)
 				&& Objects.equals(name, other.name) && Objects.equals(student_ID, other.student_ID);
 	}
+	
 }

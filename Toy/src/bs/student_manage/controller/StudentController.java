@@ -24,7 +24,13 @@ public class StudentController {
 	
 	// 학생 정보 수정
 	public void updateStudent() {
+		String checkID = MainView.getMainView().checkStudentID();
 		
+		Student s = MainView.getMainView().updateStudent();
+		
+		String msg = dao.updateStudent(checkID, s) ? "수정 성공 :)" : "수정 실패 :(";
+		
+		MainView.getMainView().systemMsg(msg);
 	}
 	
 	// 학생 조회
