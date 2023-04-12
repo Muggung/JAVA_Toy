@@ -31,7 +31,7 @@ public class MainView {
 			switch(choice) {
 				case 1 : control.insertStudent(); break;
 				case 2 : control.updateStudent(); break;
-				case 3 : control.deleteStudent(); break; // 다시 만들것...
+				case 3 : control.deleteStudent(); break;  // 다시 만들것...
 				case 4 : control.printAllStudent(); break;
 				case 5 : control.printStudent(); break;
 				case 0 : System.out.println("프로그램을 종료합니다."); return;
