@@ -48,7 +48,7 @@ public class StudentDao{
 		return true;
 	}
 	
-	// 학생 정보 삭제
+	// 학생 정보 삭제 (다시 만들 것)
 	public boolean deleteStudent(String id) {
 		if(students.containsKey(id)) {
 			students.remove(id);

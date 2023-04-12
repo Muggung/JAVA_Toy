@@ -33,7 +33,7 @@ public class StudentController {
 		MainView.getMainView().systemMsg(msg);
 	}
 	
-	// 학생 정보 삭제
+	// 학생 정보 삭제 (다시 만들 것)
 	public void deleteStudent() {
 		String checkID = MainView.getMainView().checkStudentID();
 		
