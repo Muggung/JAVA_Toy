@@ -1,6 +1,7 @@
 package bs.student_manage.dao;
 
 import java.util.HashMap;
+import java.util.Set;
 
 import bs.student_manage.dto.Student;
 
@@ -27,7 +28,7 @@ public class StudentDao{
 		}
 	}
 	
-	// 학생 정보 수정 (코드가 지저분함, 다시 해보기)
+	// 학생 정보 수정
 	public boolean updateStudent(String id, Student s) {
 		if(!students.containsKey(id)) {
 			return false;
@@ -47,8 +48,31 @@ public class StudentDao{
 		return true;
 	}
 	
+	// 학생 정보 삭제
+	public boolean deleteStudent(String id) {
+		if(students.containsKey(id)) {
+			students.remove(id);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	// 등록된 학생 정보 반환
 	public HashMap<String, Student> printAllStudent() {
 		return students;
+	}
+	
+	// 검색된 학생 정보 반환
+	public HashMap<String, Student> printStudent(String name) {
+		HashMap<String, Student> copyMap = new HashMap<String, Student>();
+		
+		Set keys = students.keySet();
+		
+		for(Object k : keys) {
+			if(students.get(k).getName().equals(name)) {
+				copyMap = students;
+			}
+		} return copyMap;
 	}
 }

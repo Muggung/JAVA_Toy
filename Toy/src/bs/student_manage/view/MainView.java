@@ -23,7 +23,7 @@ public class MainView {
 			System.out.println("2. 학생 수정");
 			System.out.println("3. 학생 삭제");
 			System.out.println("4. 학생 조회");
-			System.out.println("5. 학생 이름 조회");			// 미구현
+			System.out.println("5. 학생 이름 조회");
 			System.out.println("0. 프로그램 종료");
 			System.out.print("입력 : ");
 			int choice = sc.nextInt();
@@ -31,9 +31,9 @@ public class MainView {
 			switch(choice) {
 				case 1 : control.insertStudent(); break;
 				case 2 : control.updateStudent(); break;
-				case 3 : 
+				case 3 : control.deleteStudent(); break;		// 다시 만들기...
 				case 4 : control.printAllStudent(); break;
-				case 5 :
+				case 5 : control.printStudent(); break;
 				case 0 : System.out.println("프로그램을 종료합니다."); return;
 				default : System.out.println("===== 잘못 입력하셨습니다. 다시 입력해주세요. ====="); break;
 			}
@@ -123,7 +123,22 @@ public class MainView {
 	
 	// 학생 조회 화면
 	public void printAllStudent(HashMap<String, Student> hm) {
-		System.out.println("===== 학생 조회 =====");
-		hm.forEach((s, v) -> System.out.println("학번 : " + s + v));
+		System.out.println("=====***** 학생 조회 *****=====");
+		if(hm.isEmpty()) {
+			System.out.println("저장된 학생이 없어요...😅😅😅😅😅😅");
+		} else {
+			hm.forEach((s, v) -> System.out.println("학번 : " + s + v));	
+		}
+	}
+	
+	// 학생 이름 조회 화면
+	public String printStudent() {
+		System.out.println("=====***** 학생 검색 *****=====");
+		System.out.println("찾으실 학생 이름을 입력해주세요!");
+		sc.nextLine();
+		System.out.print("이름 : ");
+		String name = sc.nextLine();
+		
+		return name;
 	}
 }

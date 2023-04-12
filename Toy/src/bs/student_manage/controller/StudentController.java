@@ -33,8 +33,24 @@ public class StudentController {
 		MainView.getMainView().systemMsg(msg);
 	}
 	
+	// 학생 정보 삭제
+	public void deleteStudent() {
+		String checkID = MainView.getMainView().checkStudentID();
+		
+		String msg = dao.deleteStudent(checkID) ? "삭제 성공 :)" : "삭제 실패 :(";
+		
+		MainView.getMainView().systemMsg(msg);
+	}
+	
 	// 학생 조회
 	public void printAllStudent() {
 		MainView.getMainView().printAllStudent(dao.printAllStudent());
+	}
+	
+	// 학생 이름 조회
+	public void printStudent() {
+		String name = MainView.getMainView().printStudent();
+		
+		MainView.getMainView().printAllStudent( dao.printStudent(name));
 	}
 }
